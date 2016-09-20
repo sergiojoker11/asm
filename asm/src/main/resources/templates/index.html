@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Proof of concept ASM</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+        <link href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet" media="screen"> </link>
+    </head>
+    <body>
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+        <h1>Spring 4 and Thymeleaf 3</h1>
+        <form action="#" th:action="@{/insert}"  method="post">
+            <button type="submit" class="btn btn-default">Mandar objetos a la BBDD</button> 
+        </form>
+    </body>
+    <table>
+
+        <tr th:each="sb : ${allProductos}">
+            <td th:text="${{sb.nombre}}"></td>
+            <td>
+                <table class="table-bordered">
+                    <tbody>
+                        <tr th:each="fr : ${sb.listaFormatos}">
+                            <td th:text="${fr.unidad}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <a href="#" th:href="@{/menu}">Link</a>
+    </table>
+</html>
